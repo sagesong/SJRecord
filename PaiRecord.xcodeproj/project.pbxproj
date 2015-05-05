@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		D6FEAB561AF78B5800C65A43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FEAB551AF78B5800C65A43 /* main.m */; };
 		D6FEAB591AF78B5800C65A43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FEAB581AF78B5800C65A43 /* AppDelegate.m */; };
-		D6FEAB5C1AF78B5800C65A43 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FEAB5B1AF78B5800C65A43 /* ViewController.m */; };
 		D6FEAB5F1AF78B5800C65A43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6FEAB5D1AF78B5800C65A43 /* Main.storyboard */; };
 		D6FEAB611AF78B5800C65A43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6FEAB601AF78B5800C65A43 /* Images.xcassets */; };
 		D6FEAB641AF78B5800C65A43 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6FEAB621AF78B5800C65A43 /* LaunchScreen.xib */; };
 		D6FEAB701AF78B5800C65A43 /* PaiRecordTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FEAB6F1AF78B5800C65A43 /* PaiRecordTests.m */; };
+		D6FEAB801AF7903700C65A43 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FEAB7D1AF7903700C65A43 /* ViewController.m */; };
+		D6FEABFE1AF865A400C65A43 /* UIImage+Resizable.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FEABFB1AF865A400C65A43 /* UIImage+Resizable.m */; };
+		D6FEABFF1AF865A400C65A43 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FEABFD1AF865A400C65A43 /* UIView+Frame.m */; };
+		D6FEAC021AF8713A00C65A43 /* PDSPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FEAC011AF8713A00C65A43 /* PDSPreviewView.m */; };
+		D6FEAC051AF8757300C65A43 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FEAC041AF8757300C65A43 /* UIView+Additions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +36,24 @@
 		D6FEAB551AF78B5800C65A43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6FEAB571AF78B5800C65A43 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D6FEAB581AF78B5800C65A43 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D6FEAB5A1AF78B5800C65A43 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D6FEAB5B1AF78B5800C65A43 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D6FEAB5E1AF78B5800C65A43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6FEAB601AF78B5800C65A43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D6FEAB631AF78B5800C65A43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D6FEAB691AF78B5800C65A43 /* PaiRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaiRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FEAB6E1AF78B5800C65A43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6FEAB6F1AF78B5800C65A43 /* PaiRecordTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaiRecordTests.m; sourceTree = "<group>"; };
+		D6FEAB791AF78C9800C65A43 /* PaiRecord.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaiRecord.pch; sourceTree = "<group>"; };
+		D6FEAB7C1AF7903700C65A43 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D6FEAB7D1AF7903700C65A43 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D6FEABF91AF865A400C65A43 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		D6FEABFA1AF865A400C65A43 /* UIImage+Resizable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resizable.h"; sourceTree = "<group>"; };
+		D6FEABFB1AF865A400C65A43 /* UIImage+Resizable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resizable.m"; sourceTree = "<group>"; };
+		D6FEABFC1AF865A400C65A43 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		D6FEABFD1AF865A400C65A43 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		D6FEAC001AF8713A00C65A43 /* PDSPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSPreviewView.h; sourceTree = "<group>"; };
+		D6FEAC011AF8713A00C65A43 /* PDSPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDSPreviewView.m; sourceTree = "<group>"; };
+		D6FEAC031AF8757300C65A43 /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
+		D6FEAC041AF8757300C65A43 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +95,12 @@
 		D6FEAB521AF78B5800C65A43 /* PaiRecord */ = {
 			isa = PBXGroup;
 			children = (
+				D6FEAB7A1AF7903700C65A43 /* Categories */,
+				D6FEAB7B1AF7903700C65A43 /* Controllers */,
+				D6FEAB7E1AF7903700C65A43 /* Models */,
+				D6FEAB7F1AF7903700C65A43 /* Views */,
 				D6FEAB571AF78B5800C65A43 /* AppDelegate.h */,
 				D6FEAB581AF78B5800C65A43 /* AppDelegate.m */,
-				D6FEAB5A1AF78B5800C65A43 /* ViewController.h */,
-				D6FEAB5B1AF78B5800C65A43 /* ViewController.m */,
 				D6FEAB5D1AF78B5800C65A43 /* Main.storyboard */,
 				D6FEAB601AF78B5800C65A43 /* Images.xcassets */,
 				D6FEAB621AF78B5800C65A43 /* LaunchScreen.xib */,
@@ -98,6 +114,7 @@
 			children = (
 				D6FEAB541AF78B5800C65A43 /* Info.plist */,
 				D6FEAB551AF78B5800C65A43 /* main.m */,
+				D6FEAB791AF78C9800C65A43 /* PaiRecord.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -117,6 +134,45 @@
 				D6FEAB6E1AF78B5800C65A43 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D6FEAB7A1AF7903700C65A43 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D6FEABF91AF865A400C65A43 /* Singleton.h */,
+				D6FEABFA1AF865A400C65A43 /* UIImage+Resizable.h */,
+				D6FEABFB1AF865A400C65A43 /* UIImage+Resizable.m */,
+				D6FEABFC1AF865A400C65A43 /* UIView+Frame.h */,
+				D6FEABFD1AF865A400C65A43 /* UIView+Frame.m */,
+				D6FEAC031AF8757300C65A43 /* UIView+Additions.h */,
+				D6FEAC041AF8757300C65A43 /* UIView+Additions.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		D6FEAB7B1AF7903700C65A43 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D6FEAB7C1AF7903700C65A43 /* ViewController.h */,
+				D6FEAB7D1AF7903700C65A43 /* ViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D6FEAB7E1AF7903700C65A43 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D6FEAB7F1AF7903700C65A43 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D6FEAC001AF8713A00C65A43 /* PDSPreviewView.h */,
+				D6FEAC011AF8713A00C65A43 /* PDSPreviewView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +219,7 @@
 		D6FEAB481AF78B5800C65A43 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = PDS;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Lightning;
 				TargetAttributes = {
@@ -219,9 +276,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6FEAB5C1AF78B5800C65A43 /* ViewController.m in Sources */,
+				D6FEAB801AF7903700C65A43 /* ViewController.m in Sources */,
 				D6FEAB591AF78B5800C65A43 /* AppDelegate.m in Sources */,
 				D6FEAB561AF78B5800C65A43 /* main.m in Sources */,
+				D6FEAC021AF8713A00C65A43 /* PDSPreviewView.m in Sources */,
+				D6FEABFF1AF865A400C65A43 /* UIView+Frame.m in Sources */,
+				D6FEAC051AF8757300C65A43 /* UIView+Additions.m in Sources */,
+				D6FEABFE1AF865A400C65A43 /* UIImage+Resizable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +410,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PaiRecord/PaiRecord.pch;
 				INFOPLIST_FILE = PaiRecord/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -359,6 +422,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PaiRecord/PaiRecord.pch;
 				INFOPLIST_FILE = PaiRecord/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

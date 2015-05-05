@@ -1,0 +1,15 @@
+//
+//  PaiRecord.pch
+//  PaiRecord
+//
+//  Created by Lightning on 15/5/4.
+//  Copyright (c) 2015年 Lightning. All rights reserved.
+//
+
+
+#import <Availability.h>
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
