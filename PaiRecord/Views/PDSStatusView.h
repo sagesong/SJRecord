@@ -10,4 +10,6 @@
 
 @interface PDSStatusView : UIView
 
+@property (weak, nonatomic) IBOutlet UILabel *timeLable;
+
 @end

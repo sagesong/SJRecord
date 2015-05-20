@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>3F5A5A36-2876-4F16-BA64-59E2270DBEE4</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>PaiRecord</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>79BE289CDB5DADBD5F5E1AC20FF8E0A452156B7C</key>
 		<string>github.com:sagesong/SJRecord.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>PaiRecord.xcodeproj/project.xcworkspace</string>
+	<string>PaiRecord.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>79BE289CDB5DADBD5F5E1AC20FF8E0A452156B7C</key>

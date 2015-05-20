@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6710FA11B0B22780073E7D6 /* PDSOverLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6710FA01B0B22780073E7D6 /* PDSOverLayerView.m */; };
+		D6710FA41B0B297B0073E7D6 /* PDSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6710FA31B0B297B0073E7D6 /* PDSCameraViewController.m */; };
+		D6710FA71B0B30BA0073E7D6 /* PDSStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6710FA61B0B30BA0073E7D6 /* PDSStatusView.m */; };
+		D6710FAA1B0B30E90073E7D6 /* PDSCameraModeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6710FA91B0B30E90073E7D6 /* PDSCameraModeView.m */; };
 		D6FEAB561AF78B5800C65A43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FEAB551AF78B5800C65A43 /* main.m */; };
 		D6FEAB591AF78B5800C65A43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FEAB581AF78B5800C65A43 /* AppDelegate.m */; };
 		D6FEAB5F1AF78B5800C65A43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6FEAB5D1AF78B5800C65A43 /* Main.storyboard */; };
@@ -31,6 +35,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D6710F9F1B0B22780073E7D6 /* PDSOverLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSOverLayerView.h; sourceTree = "<group>"; };
+		D6710FA01B0B22780073E7D6 /* PDSOverLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDSOverLayerView.m; sourceTree = "<group>"; };
+		D6710FA21B0B297B0073E7D6 /* PDSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSCameraViewController.h; sourceTree = "<group>"; };
+		D6710FA31B0B297B0073E7D6 /* PDSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDSCameraViewController.m; sourceTree = "<group>"; };
+		D6710FA51B0B30BA0073E7D6 /* PDSStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSStatusView.h; sourceTree = "<group>"; };
+		D6710FA61B0B30BA0073E7D6 /* PDSStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDSStatusView.m; sourceTree = "<group>"; };
+		D6710FA81B0B30E90073E7D6 /* PDSCameraModeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSCameraModeView.h; sourceTree = "<group>"; };
+		D6710FA91B0B30E90073E7D6 /* PDSCameraModeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDSCameraModeView.m; sourceTree = "<group>"; };
 		D6FEAB501AF78B5800C65A43 /* PaiRecord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaiRecord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6FEAB541AF78B5800C65A43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6FEAB551AF78B5800C65A43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -155,6 +167,8 @@
 			children = (
 				D6FEAB7C1AF7903700C65A43 /* ViewController.h */,
 				D6FEAB7D1AF7903700C65A43 /* ViewController.m */,
+				D6710FA21B0B297B0073E7D6 /* PDSCameraViewController.h */,
+				D6710FA31B0B297B0073E7D6 /* PDSCameraViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,6 +185,12 @@
 			children = (
 				D6FEAC001AF8713A00C65A43 /* PDSPreviewView.h */,
 				D6FEAC011AF8713A00C65A43 /* PDSPreviewView.m */,
+				D6710F9F1B0B22780073E7D6 /* PDSOverLayerView.h */,
+				D6710FA01B0B22780073E7D6 /* PDSOverLayerView.m */,
+				D6710FA51B0B30BA0073E7D6 /* PDSStatusView.h */,
+				D6710FA61B0B30BA0073E7D6 /* PDSStatusView.m */,
+				D6710FA81B0B30E90073E7D6 /* PDSCameraModeView.h */,
+				D6710FA91B0B30E90073E7D6 /* PDSCameraModeView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,10 +296,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6710FA11B0B22780073E7D6 /* PDSOverLayerView.m in Sources */,
 				D6FEAB801AF7903700C65A43 /* ViewController.m in Sources */,
+				D6710FA41B0B297B0073E7D6 /* PDSCameraViewController.m in Sources */,
 				D6FEAB591AF78B5800C65A43 /* AppDelegate.m in Sources */,
+				D6710FA71B0B30BA0073E7D6 /* PDSStatusView.m in Sources */,
 				D6FEAB561AF78B5800C65A43 /* main.m in Sources */,
 				D6FEAC021AF8713A00C65A43 /* PDSPreviewView.m in Sources */,
+				D6710FAA1B0B30E90073E7D6 /* PDSCameraModeView.m in Sources */,
 				D6FEABFF1AF865A400C65A43 /* UIView+Frame.m in Sources */,
 				D6FEAC051AF8757300C65A43 /* UIView+Additions.m in Sources */,
 				D6FEABFE1AF865A400C65A43 /* UIImage+Resizable.m in Sources */,
@@ -413,6 +437,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PaiRecord/PaiRecord.pch;
 				INFOPLIST_FILE = PaiRecord/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -425,6 +450,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PaiRecord/PaiRecord.pch;
 				INFOPLIST_FILE = PaiRecord/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -483,6 +509,7 @@
 				D6FEAB751AF78B5800C65A43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D6FEAB761AF78B5800C65A43 /* Build configuration list for PBXNativeTarget "PaiRecordTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +518,7 @@
 				D6FEAB781AF78B5800C65A43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

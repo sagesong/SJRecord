@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PDSStatusView.h"
+#import "PDSCameraModeView.h"
+@interface PDSOverLayerView : UIControl
 
-@interface PDSOverLayerView : UIView
+@property (weak, nonatomic) IBOutlet PDSCameraModeView *cameraModeView;
+@property (weak, nonatomic) IBOutlet PDSStatusView *statusView;
 
 @end

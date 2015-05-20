@@ -46,8 +46,8 @@
 
 - (void)setupViews {
     [(AVCaptureVideoPreviewLayer *)self.layer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-    
-    
+    NSLog(@"%s",__func__);
+    self.userInteractionEnabled = YES;
     _singleTapGesture =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     
     _doubleTapGesture =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
@@ -67,6 +67,7 @@
     _exposureBox = [self viewWithColor:[UIColor colorWithRed:1.000 green:0.421 blue:0.054 alpha:1.000]];
     [self addSubview:_focusBox];
     [self addSubview:_exposureBox];
+    
 }
 
 #pragma mark - Tap response
@@ -78,6 +79,8 @@
     if ([self.delegate respondsToSelector:@selector(tappedToFocusAtPoint:)]) {
         [self.delegate tappedToFocusAtPoint:[self captureDevicePointForPoint:point]];
     }
+    NSLog(@"%s",__func__);
+
 }
 
 - (void)handleDoubleTap:(UITapGestureRecognizer *)recognizer
@@ -87,6 +90,8 @@
     if ([self.delegate respondsToSelector:@selector(tappedToExposeAtPoint:)]) {
         [self.delegate tappedToExposeAtPoint:[self captureDevicePointForPoint:point]];
     }
+    NSLog(@"%s",__func__);
+
 }
 
 - (void)handleDoubleDoubleTap:(UITapGestureRecognizer *)recognizer
@@ -97,7 +102,7 @@
     }
 }
 
-- (CGPoint)captureDevicePointForPoint:(CGPoint)point {                      // 3
+- (CGPoint)captureDevicePointForPoint:(CGPoint)point {                      
     AVCaptureVideoPreviewLayer *layer =
     (AVCaptureVideoPreviewLayer *)self.layer;
     return [layer captureDevicePointOfInterestForPoint:point];
