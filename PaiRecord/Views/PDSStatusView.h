@@ -8,8 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PDSStatusView : UIView
+@interface PDSStatusView : UIControl
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLable;
 
+@property (weak, nonatomic) IBOutlet UIButton *backBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *micBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *flashBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *cameraBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *thumbleBtn;
+
+- (void)hideFunctionComponent;
+- (void)displayFunctionComponent;
 @end

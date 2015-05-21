@@ -31,7 +31,7 @@ extern NSString *const PDSThumbnailCreatedNotification;
 @property (nonatomic) AVCaptureTorchMode torchMode;
 @property (nonatomic) AVCaptureFlashMode flashMode;
 
-// Tap to * Methods                                                         
+// Tap  Methods                                                         
 - (void)focusAtPoint:(CGPoint)point;
 - (void)exposeAtPoint:(CGPoint)point;
 - (void)resetFocusAndExposureModes;

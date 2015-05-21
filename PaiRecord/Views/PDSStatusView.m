@@ -10,6 +10,25 @@
 
 @implementation PDSStatusView
 
+
+- (void)hideFunctionComponent
+{
+    self.backBtn.hidden = YES;
+    self.flashBtn.hidden = YES;
+    self.cameraBtn.hidden = YES;
+    self.thumbleBtn.hidden = YES;
+    self.micBtn.hidden = YES;
+}
+
+- (void)displayFunctionComponent
+{
+    self.backBtn.hidden = NO;
+    self.flashBtn.hidden = NO;
+    self.cameraBtn.hidden = NO;
+    self.thumbleBtn.hidden = NO;
+    self.micBtn.hidden = NO;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

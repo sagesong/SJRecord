@@ -29,6 +29,8 @@
 
 @implementation ViewController
 
+#pragma mark - view cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -51,7 +53,23 @@
     
     NSLog(@"%@",self.previewView.subviews);
     self.overLayerView.backgroundColor = [UIColor clearColor];
+//    self.overLayerView.alpha = 0.0f;
     
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.cameraController stopRecording];
+    [self stopTimer];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 }
 
 - (void)updateThumbnail:(NSNotification *)noti
@@ -72,16 +90,17 @@
 
 #pragma mark - tap response
 - (IBAction)switchCamera:(UIButton *)sender {
+    [self.cameraController switchCameras];
 }
 
 - (IBAction)backToPre:(UIButton *)sender {
 }
 
 - (IBAction)switchFlashMode:(UIButton *)sender {
-    if (self.cameraController.captureSession.isRunning) {
-        return;
-    }
-    self.cameraController.flashMode = self.cameraController.flashMode == AVCaptureFlashModeOn ? AVCaptureFlashModeOff : AVCaptureFlashModeOn;
+//    if (self.cameraController.captureSession.isRunning) {
+//        return;
+//    }
+    self.cameraController.flashMode = self.cameraController.flashMode == AVCaptureFlashModeOff ? AVCaptureFlashModeOn : AVCaptureFlashModeOff;
 }
 
 - (IBAction)recordWithMicroOrNot:(UIButton *)sender {
@@ -94,6 +113,9 @@
             [self startTimer];
         });
     }
+    [self.overLayerView hideFunctionComponent];
+    
+    
     return;
 }
 
@@ -130,6 +152,7 @@
 - (IBAction)stopRecord:(UIButton *)sender {
     [self.cameraController stopRecording];
     [self stopTimer];
+    [self.overLayerView displayFunctionComponent];
 }
 
 - (void)stopTimer
@@ -156,4 +179,37 @@
 {
     [self.cameraController resetFocusAndExposureModes];
 }
+
+- (void)cameraZoomDidBegin
+{
+    self.overLayerView.slider.alpha = 0.0;
+    [UIView animateWithDuration:0.2f animations:^{
+        self.overLayerView.slider.alpha = 1.0;
+    } completion:^(BOOL finished) {
+        self.overLayerView.slider.hidden = NO;
+    }];
+//    self.overLayerView.slider.hidden = NO;
+
+}
+
+- (void)cameraZoomChangingWithValue:(CGFloat)scaleValue
+{
+    self.overLayerView.slider.value = scaleValue;
+    self.overLayerView.slider.hidden = NO;
+//    NSLog(@"%@---%s",self.slider,__func__);
+//    self.slider.value = scaleValue;
+//    self.slider.hidden = NO;
+}
+- (void)cameraZoomDidEnd
+{
+    self.overLayerView.slider.alpha = 1.0;
+
+    [UIView animateWithDuration:0.2f animations:^{
+        self.overLayerView.slider.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        self.overLayerView.slider.hidden = YES;
+    }];
+    NSLog(@"%@---%s",self.overLayerView.slider,__func__);
+}
+
 @end

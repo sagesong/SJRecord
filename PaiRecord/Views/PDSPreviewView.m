@@ -10,7 +10,8 @@
 
 
 #define BOX_BOUNDS CGRectMake(0.0f, 0.0f, 150, 150.0f)
-@interface PDSPreviewView ()
+@interface PDSPreviewView ()<UIGestureRecognizerDelegate>
+
 
 @property (nonatomic, strong) UIView *focusBox;
 @property (nonatomic, strong) UIView *exposureBox;
@@ -18,7 +19,10 @@
 @property (nonatomic, strong) UITapGestureRecognizer *singleTapGesture;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTapGesture;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleDoubleTapGesture;
+@property (nonatomic, strong) UIPinchGestureRecognizer *pinchGesture;
 
+@property (nonatomic, assign) CGFloat lastScale;
+@property (nonatomic, assign) CGFloat effectiveScale;
 @end
 
 
@@ -46,8 +50,11 @@
 
 - (void)setupViews {
     [(AVCaptureVideoPreviewLayer *)self.layer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+    
     NSLog(@"%s",__func__);
     self.userInteractionEnabled = YES;
+    self.effectiveScale = 1.0f;
+
     _singleTapGesture =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     
     _doubleTapGesture =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
@@ -58,9 +65,14 @@
     _doubleDoubleTapGesture.numberOfTapsRequired = 2;
     _doubleDoubleTapGesture.numberOfTouchesRequired = 2;
     
+    _pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
+    _pinchGesture.delegate = self;
+    
+    
     [self addGestureRecognizer:_singleTapGesture];
     [self addGestureRecognizer:_doubleTapGesture];
     [self addGestureRecognizer:_doubleDoubleTapGesture];
+    [self addGestureRecognizer:_pinchGesture];
     [_singleTapGesture requireGestureRecognizerToFail:_doubleTapGesture];
     
     _focusBox = [self viewWithColor:[UIColor colorWithRed:0.102 green:0.636 blue:1.000 alpha:1.000]];
@@ -100,6 +112,91 @@
     if ([self.delegate respondsToSelector:@selector(tappedToResetFocusAndExposure)]) {
         [self.delegate tappedToResetFocusAndExposure];
     }
+}
+
+- (void)handlePinch:(UIPinchGestureRecognizer *)recognizer
+{
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        if ([self.delegate respondsToSelector:@selector(cameraZoomDidBegin)]) {
+            [self.delegate cameraZoomDidBegin];
+        }
+    }
+    
+    _effectiveScale = _lastScale * recognizer.scale;
+    if (_effectiveScale < 1.0)
+        _effectiveScale = 1.0;
+//    CGFloat maxScaleAndCropFactor = [[stillImageOutput connectionWithMediaType:AVMediaTypeVideo] videoMaxScaleAndCropFactor];
+    AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    AVCaptureDeviceFormat *deviceFormat = [videoDevice activeFormat];
+    
+    
+//    CGFloat maxScaleAndCropFactor = [deviceFormat videoMaxZoomFactor];
+    CGFloat maxScaleAndCropFactor = 4.0;
+    if (_effectiveScale > maxScaleAndCropFactor)
+        _effectiveScale = maxScaleAndCropFactor;
+    
+    if ([self.delegate respondsToSelector:@selector(cameraZoomChangingWithValue:)]) {
+        [self.delegate cameraZoomChangingWithValue:_effectiveScale];
+    }
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:.025];
+    [self.layer setAffineTransform:CGAffineTransformMakeScale(_effectiveScale, _effectiveScale)];
+    [CATransaction commit];
+//    if (recognizer.state == UIGestureRecognizerStateChanged) {
+//        if (recognizer.scale < 1.0f && self.lastScale == 1) {
+//            return;
+//        }
+//        CGFloat currentScale = recognizer.scale + self.lastScale - 1.0f;
+//        self.transform = CGAffineTransformScale(self.transform, recognizer.scale, recognizer.scale);
+//        self.transform = CGAffineTransformMakeScale(<#CGFloat sx#>, <#CGFloat sy#>)
+//        NSLog(@"beging scale %f",currentScale);
+//        self.lastScale = recognizer.scale;
+    
+//        if (recognizer.scale <= 1.0f) {
+//            if (self.frame.size.width == [UIScreen mainScreen].bounds.size.width) {
+//                return;
+//            }
+//        }
+//        if (recognizer.scale + self.lastScale >= 4.0f) {
+//            return;
+//        }
+//        self.transform = CGAffineTransformMakeScale(recognizer.scale + self.lastScale, recognizer.scale + self.lastScale);
+////        if () {
+////            
+////        }
+//        NSLog(@"%s--%f----%f",__func__,recognizer.scale,recognizer.velocity);
+//        NSLog(@"------%@-----",NSStringFromCGRect(self.frame));
+
+//    }
+    
+//    if (recognizer.state == UIGestureRecognizerStateEnded) {
+//        
+//        self.lastScale = recognizer.scale;
+//        NSLog(@"end state -- %f",self.lastScale);
+//    }
+    if (recognizer.state == UIGestureRecognizerStateEnded) {
+        if ([self.delegate respondsToSelector:@selector(cameraZoomDidEnd)]) {
+            [self.delegate cameraZoomDidEnd];
+        }
+    }
+    
+    
+    NSError *err;
+    [videoDevice lockForConfiguration:&err];
+    [videoDevice setVideoZoomFactor:_effectiveScale];
+    [videoDevice unlockForConfiguration];
+    if (err) {
+        NSLog(@"%@",[err localizedDescription]);
+    }
+
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    if ( [gestureRecognizer isKindOfClass:[UIPinchGestureRecognizer class]] ) {
+        _lastScale = _effectiveScale;
+    }
+    return YES;
 }
 
 - (CGPoint)captureDevicePointForPoint:(CGPoint)point {                      
@@ -197,5 +294,6 @@
     // Drawing code
 }
 */
+
 
 @end

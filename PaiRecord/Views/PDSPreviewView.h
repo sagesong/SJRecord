@@ -10,9 +10,15 @@
 
 @protocol  PDSPreviewViewDelegate <NSObject>
 
+@optional
 - (void)tappedToFocusAtPoint:(CGPoint)point;
 - (void)tappedToExposeAtPoint:(CGPoint)point;
 - (void)tappedToResetFocusAndExposure;
+
+//---------zoom setting ----------------
+- (void)cameraZoomDidBegin;
+- (void)cameraZoomChangingWithValue:(CGFloat)scaleValue;
+- (void)cameraZoomDidEnd;
 
 @end
 
