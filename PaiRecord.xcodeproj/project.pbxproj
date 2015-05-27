@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B5F12181B161EAC00BAD770 /* PDSRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5F12171B161EAC00BAD770 /* PDSRecordManager.m */; };
 		D6710FA11B0B22780073E7D6 /* PDSOverLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6710FA01B0B22780073E7D6 /* PDSOverLayerView.m */; };
 		D6710FA41B0B297B0073E7D6 /* PDSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6710FA31B0B297B0073E7D6 /* PDSCameraViewController.m */; };
 		D6710FA71B0B30BA0073E7D6 /* PDSStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6710FA61B0B30BA0073E7D6 /* PDSStatusView.m */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B5F12161B161EAC00BAD770 /* PDSRecordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSRecordManager.h; path = PaiRecord/PDSRecordManager.h; sourceTree = SOURCE_ROOT; };
+		0B5F12171B161EAC00BAD770 /* PDSRecordManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDSRecordManager.m; path = PaiRecord/PDSRecordManager.m; sourceTree = SOURCE_ROOT; };
 		D6710F9F1B0B22780073E7D6 /* PDSOverLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSOverLayerView.h; sourceTree = "<group>"; };
 		D6710FA01B0B22780073E7D6 /* PDSOverLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDSOverLayerView.m; sourceTree = "<group>"; };
 		D6710FA21B0B297B0073E7D6 /* PDSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSCameraViewController.h; sourceTree = "<group>"; };
@@ -176,6 +179,8 @@
 		D6FEAB7E1AF7903700C65A43 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0B5F12161B161EAC00BAD770 /* PDSRecordManager.h */,
+				0B5F12171B161EAC00BAD770 /* PDSRecordManager.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 			files = (
 				D6710FA11B0B22780073E7D6 /* PDSOverLayerView.m in Sources */,
 				D6FEAB801AF7903700C65A43 /* ViewController.m in Sources */,
+				0B5F12181B161EAC00BAD770 /* PDSRecordManager.m in Sources */,
 				D6710FA41B0B297B0073E7D6 /* PDSCameraViewController.m in Sources */,
 				D6FEAB591AF78B5800C65A43 /* AppDelegate.m in Sources */,
 				D6710FA71B0B30BA0073E7D6 /* PDSStatusView.m in Sources */,

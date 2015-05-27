@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+#import "Singleton.h"
 @protocol PDSRecordManagerDelegate <NSObject>
 
 - (void)recordingWillStart;
@@ -23,6 +24,7 @@
 @interface PDSRecordManager : NSObject
 
 #warning single to do
+singleton_interface(PDSRecordManager)
 
 @property (nonatomic, assign) BOOL enableMicro;
 @property (nonatomic, assign) BOOL enableFlash;
@@ -43,7 +45,7 @@
 - (void)pauseRecord;
 - (void)resumeRecord;
 
-- (void)setupSessionContext;
+- (BOOL)setupSessionContext;
 - (void)tearDownSessionContext;
 
 
