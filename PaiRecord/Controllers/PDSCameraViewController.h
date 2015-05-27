@@ -46,4 +46,7 @@ extern NSString *const PDSThumbnailCreatedNotification;
 - (void)stopRecording;
 - (BOOL)isRecording;
 - (CMTime)recordedDuration;
+
+// micro setting
+@property (nonatomic, assign, getter=isRecordWithSound) BOOL recordWithSound;
 @end

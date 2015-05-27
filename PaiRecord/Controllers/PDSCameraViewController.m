@@ -25,6 +25,41 @@ NSString *const PDSThumbnailCreatedNotification = @"PDSThumbnailCreated";
 
 @implementation PDSCameraViewController
 
+#pragma mark - setter and getter
+
+- (void)setRecordWithSound:(BOOL)recordWithSound
+{
+    _recordWithSound = recordWithSound;
+    if (recordWithSound) {
+        AVCaptureDevice *audioDevice =
+        [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
+        
+        NSError *error;
+        AVCaptureDeviceInput *audioInput =
+        [AVCaptureDeviceInput deviceInputWithDevice:audioDevice error:&error];
+        if (audioInput) {
+            if ([self.captureSession canAddInput:audioInput]) {
+                [self.captureSession addInput:audioInput];
+            }
+        } else {
+            NSLog(@"%@",[error localizedDescription]);
+        }
+    } else {
+        for (AVCaptureDeviceInput *deviceInput in self.captureSession.inputs) {
+//            AVCaptureDeviceFormat *deviceFormat = [deviceInput.device activeFormat];
+            AVCaptureDevice *device = deviceInput.device;
+            NSLog(@"device input ----%@",deviceInput);
+            if ([device hasMediaType:AVMediaTypeAudio]) {
+                [self.captureSession removeInput:deviceInput];
+                NSLog(@"got audio inptu");
+            }
+            
+        }
+        NSLog(@"got nothing");
+    }
+    NSLog(@"%s",__func__);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -64,6 +99,7 @@ NSString *const PDSThumbnailCreatedNotification = @"PDSThumbnailCreated";
     } else {
         return NO;
     }
+    self.recordWithSound = YES;
     
     // Setup the still image output
     self.imageOutput = [[AVCaptureStillImageOutput alloc] init];
@@ -161,7 +197,7 @@ NSString *const PDSThumbnailCreatedNotification = @"PDSThumbnailCreated";
         
         [self.captureSession removeInput:self.activeVideoInput];
         
-        if ([self.captureSession canAddInput:videoInput]) {                 // 5
+        if ([self.captureSession canAddInput:videoInput]) {
             [self.captureSession addInput:videoInput];
             self.activeVideoInput = videoInput;
         } else {
@@ -172,6 +208,7 @@ NSString *const PDSThumbnailCreatedNotification = @"PDSThumbnailCreated";
         
     } else {
 //        [self.delegate deviceConfigurationFailedWithError:error];
+        NSLog(@"%@",[error localizedDescription]);
         return NO;
     }
     
@@ -289,6 +326,7 @@ static const NSString *PDSCameraAdjustingExposureContext;
             [device unlockForConfiguration];
         } else {
 //            [self.delegate deviceConfigurationFailedWithError:error];
+            NSLog(@"%@",[error localizedDescription]);
         }
     }
 }

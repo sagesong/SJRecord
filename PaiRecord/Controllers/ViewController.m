@@ -61,8 +61,10 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.cameraController stopRecording];
-    [self stopTimer];
+//    [self.cameraController stopRecording];
+//    [self stopTimer];
+    NSLog(@"viewWillDisappear");
+    [self stopRecord:nil];
 }
 
 
@@ -104,6 +106,9 @@
 }
 
 - (IBAction)recordWithMicroOrNot:(UIButton *)sender {
+    self.cameraController.recordWithSound = sender.selected;
+    sender.selected = !sender.selected;
+    NSLog(@"%s--record%d",__func__,self.cameraController.recordWithSound);
 }
 
 - (IBAction)beginRecordVideo:(UIButton *)sender {
