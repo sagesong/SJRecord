@@ -11,6 +11,7 @@
 #import "Singleton.h"
 @protocol PDSRecordManagerDelegate <NSObject>
 
+@optional
 - (void)recordingWillStart;
 - (void)recordingDidStart;
 - (void)recordingWillStop;
@@ -23,16 +24,28 @@
 
 @interface PDSRecordManager : NSObject
 
-#warning single to do
+
 singleton_interface(PDSRecordManager)
 
 @property (nonatomic, assign) BOOL enableMicro;
 @property (nonatomic, assign) BOOL enableFlash;
-@property (nonatomic, assign, getter=isRecording) BOOL recording;
+@property (nonatomic, assign, getter=isRecording, readonly) BOOL recording;
 @property (nonatomic, weak) id<PDSRecordManagerDelegate> delegate;
 
 @property (nonatomic, strong, readonly) AVCaptureSession *captureSession;
 @property (nonatomic, strong) NSURL *fileUrl;
+
+
+/*
+ //  设置分辨率
+ AVCaptureSessionPresetHigh
+ AVCaptureSessionPresetMedium
+ AVCaptureSessionPresetLow
+ AVCaptureSessionPreset640x480
+ AVCaptureSessionPreset1280x720
+ AVCaptureSessionPreset1280x720
+ //*/
+@property (nonatomic, strong) NSString *captureSessionPreset;
 
 
 //@property (nonatomic, assign)
